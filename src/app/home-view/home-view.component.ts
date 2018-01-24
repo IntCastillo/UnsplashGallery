@@ -10,7 +10,7 @@ import {ISubscription} from 'rxjs/Subscription';
 export class HomeViewComponent implements OnInit {
 
   collectionSub: ISubscription;
-  private collectionsID = [182565, 358545, 923267];
+  private collectionsID = [182565];
   collectionsPreviews = [];
 
   constructor(private data: DataService) { }
@@ -20,7 +20,7 @@ export class HomeViewComponent implements OnInit {
     this.collectionsID.forEach(id => {
         this.collectionSub = this.data.getCollection(id).subscribe(data => {
           this.collectionsPreviews.push(data);
-          console.log(this.collectionsPreviews);
+          // console.log(this.collectionsPreviews);
         });
       });
   }

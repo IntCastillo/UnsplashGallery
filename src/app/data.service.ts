@@ -11,11 +11,14 @@ export class DataService {
   private appID = '92eb7437dd10b8effb710b186827c76f42ecca9edd05345b9bbcc7003368e206';
 
   private photos = new BehaviorSubject('');
-  photosObsrv = this.photos.asObservable();
 
   constructor(private http: HttpClient) { }
 
   getCollection(id: number) {
-    return this.http.get(this.endpoint + '/collections/' + id + '/photos?client_id=' + this.appID);
+    return this.http.get(this.endpoint + '/collections/' + id + '/photos?client_id=' + this.appID, {
+      headers: {
+        'Expires': '100000'
+      }
+    });
   }
 }
