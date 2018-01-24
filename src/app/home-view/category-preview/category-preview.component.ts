@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { NgxMasonryOptions } from 'ngx-masonry';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-category-preview',
@@ -8,17 +8,18 @@ import { NgxMasonryOptions } from 'ngx-masonry';
 })
 export class CategoryPreviewComponent implements OnInit {
 
-  masonryOptions: NgxMasonryOptions = {
-    columnWidth: 200,
-    gutter: 20
-  };
-
   constructor() { }
 
-  @Input() photos;
+  @Input() photos: Array<Object>;
+  @Input() id: number;
+
+  @Output() collectionToShow = new EventEmitter();
 
   ngOnInit() {
-    console.log(this.photos[0].urls.thumb);
+  }
+
+  showCollection() {
+    this.collectionToShow.emit(this.id);
   }
 
 

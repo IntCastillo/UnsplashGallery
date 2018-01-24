@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data.service';
 import {ISubscription} from 'rxjs/Subscription';
 
@@ -10,21 +10,23 @@ import {ISubscription} from 'rxjs/Subscription';
 export class HomeViewComponent implements OnInit {
 
   collectionSub: ISubscription;
-  private collectionsID = [182565];
-  collectionsPreviews = [];
+  collections = this.data.collections;
 
-  constructor(private data: DataService) { }
-
-  ngOnInit() {
-    const that = this;
-    this.collectionsID.forEach(id => {
-        this.collectionSub = this.data.getCollection(id).subscribe(data => {
-          this.collectionsPreviews.push(data);
-          // console.log(this.collectionsPreviews);
-        });
-      });
+  constructor(private data: DataService) {
   }
 
+  ngOnInit() {
+    let i = 0;
+    this.collections.forEach(collection => {
+      this.collectionSub = this.data.getCollection(collection.id).subscribe(data => {
+        this.collections[i]['previews'] = data;
+        i++;
+      });
+    });
+  }
 
+  showCollection(id: number) {
+    console.log(id);
+  }
 
 }

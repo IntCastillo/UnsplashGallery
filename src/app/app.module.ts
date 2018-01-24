@@ -8,9 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import {DataService} from './data.service';
 import {HttpClientModule} from '@angular/common/http';
-
-import { NgxMasonryModule } from 'ngx-masonry';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,7 +20,7 @@ import { NgxMasonryModule } from 'ngx-masonry';
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgxMasonryModule
+    NgbModule.forRoot()
   ],
   providers: [
     DataService,
