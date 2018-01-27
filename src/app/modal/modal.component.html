@@ -1,0 +1,30 @@
+<div class="pic-desc">
+  <div>
+    <img src="{{userPhoto}}" alt="{{userName}}"  class="user-avatar" />
+  </div>
+  <div class="pic-info">
+    <h3 mat-dialog-title>Photo by {{userName}}</h3>
+    <div class="date">{{date}}, {{userLocation}}</div>
+  </div>
+  <div class="likes">
+    <img src="../../assets/img/likes.png" alt="Likes" /> {{likes}}
+  </div>
+</div>
+
+<mat-dialog-content>
+  <mat-progress-spinner
+    mode="indeterminate"
+    class="spinner"
+    *ngIf="!isImageLoaded">
+  </mat-progress-spinner>
+
+  <img src="{{photoURL}}"
+       alt="Photo by {{userName}}"
+       class="main-picture"
+       (load)="onLoad()"
+       [class.loaded]="isImageLoaded"/>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button [matDialogClose] class="close-button">Close</button>
+</mat-dialog-actions>

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data.service';
 import {ISubscription} from 'rxjs/Subscription';
 
+
 @Component({
   selector: 'app-home-view',
   templateUrl: './home-view.component.html',
@@ -20,6 +21,7 @@ export class HomeViewComponent implements OnInit {
     this.collections.forEach(collection => {
       this.collectionSub = this.data.getCollection(collection.id).subscribe(data => {
         this.collections[i]['previews'] = data;
+        console.log(data);
         i++;
       });
     });

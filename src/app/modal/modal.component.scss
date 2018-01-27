@@ -1,0 +1,41 @@
+@import '../sass/mixins';
+
+.pic-desc {
+  display:flex;
+  margin-bottom: 30px;
+}
+
+.mat-dialog-title {
+  margin: 0;
+}
+
+.pic-info {
+  flex-basis: 100%;
+}
+
+.user-avatar {
+  margin-right:20px;
+  @include border-radius(50%);
+}
+
+.likes {
+  flex-basis:60px;
+}
+
+.main-picture {
+  display: block;
+  max-width: 100%;
+  max-height: 60vh;
+  width: auto;
+  margin: 0 auto;
+  visibility: hidden;
+  height:0;
+  &.loaded {
+    visibility: visible;
+    height: auto;
+  }
+}
+
+.mat-dialog-actions {
+  justify-content: flex-end;
+}

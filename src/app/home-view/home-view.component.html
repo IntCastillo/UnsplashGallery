@@ -1,14 +1,11 @@
-<ngb-tabset [justify]="'justified'">
-  <ngb-tab *ngFor="let item of collections" title="{{item.title}}">
-    <ng-template ngbTabContent>
-      <div  class="tab-content">
+<mat-tab-group>
+  <mat-tab *ngFor="let item of collections" label="{{item.title}}">
+    <div class="tab-content">
       <app-category-preview [photos]="item['previews']"
                             [id]="item['id']"
                             (collectionToShow)="showCollection($event)">
       </app-category-preview>
-      </div>
-    </ng-template>
-  </ngb-tab>
-</ngb-tabset>
-
+    </div>
+  </mat-tab>
+</mat-tab-group>
 
