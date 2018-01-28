@@ -7,8 +7,9 @@ import {CategoryPreviewComponent} from './home-view/category-preview/category-pr
 import {NavbarComponent} from './navbar/navbar.component';
 
 import {DataService} from './data.service';
+import {ModalService} from './modal.service';
 import {HttpClientModule} from '@angular/common/http';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AppRoutingModule} from './app.routing';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -16,6 +17,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {ModalComponent} from './modal/modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import {CollectionViewComponent} from './collection-view/collection-view.component';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -24,7 +29,8 @@ import {MatButtonModule} from '@angular/material/button';
     HomeViewComponent,
     CategoryPreviewComponent,
     NavbarComponent,
-    ModalComponent
+    ModalComponent,
+    CollectionViewComponent
   ],
   imports: [
     BrowserModule,
@@ -34,10 +40,13 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    AppRoutingModule,
+    InfiniteScrollModule
   ],
   providers: [
     DataService,
+    ModalService,
     HttpClientModule
   ],
   bootstrap: [AppComponent],

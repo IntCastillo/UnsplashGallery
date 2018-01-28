@@ -2,23 +2,17 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">Unsplash</a>
+  <a class="navbar-brand" routerLink="/">Unsplash</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">In motion</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Urban</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Colour</a>
+      <li class="nav-item" *ngFor="let item of collections">
+        <a class="nav-link" routerLink="collection/{{item.id}}">{{item.title}}</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <!--<form class="form-inline my-2 my-lg-0">-->
+    <!--<input class="form-control mr-sm-2" type="text" placeholder="Search">-->
+    <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+    <!--</form>-->
   </div>
 </nav>

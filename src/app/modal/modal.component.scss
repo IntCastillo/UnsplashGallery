@@ -1,7 +1,7 @@
 @import '../sass/mixins';
 
 .pic-desc {
-  display:flex;
+  display: flex;
   margin-bottom: 30px;
 }
 
@@ -14,12 +14,12 @@
 }
 
 .user-avatar {
-  margin-right:20px;
+  margin-right: 20px;
   @include border-radius(50%);
 }
 
 .likes {
-  flex-basis:60px;
+  flex-basis: 60px;
 }
 
 .main-picture {
@@ -28,12 +28,6 @@
   max-height: 60vh;
   width: auto;
   margin: 0 auto;
-  visibility: hidden;
-  height:0;
-  &.loaded {
-    visibility: visible;
-    height: auto;
-  }
 }
 
 .mat-dialog-actions {

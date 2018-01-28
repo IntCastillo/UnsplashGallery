@@ -22,7 +22,8 @@
        alt="Photo by {{userName}}"
        class="main-picture"
        (load)="onLoad()"
-       [class.loaded]="isImageLoaded"/>
+       [class.loading]="!isImageLoaded"
+       [class.loaded]="isImageLoaded" />
 </mat-dialog-content>
 
 <mat-dialog-actions>

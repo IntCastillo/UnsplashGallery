@@ -4,30 +4,31 @@
 $imageHeight: '200px';
 
 .special-row {
-  max-width:100%;
+  max-width: 100%;
 }
 
 .grid-item {
-  width:100%;
+  width: 100%;
   height: 200px;
   margin-bottom: 20px;
   @include transition-duration(200ms);
   &:hover {
     @include scale(1.06);
+    cursor: pointer;
   }
 }
+
 .thumb {
   object-fit: cover;
 }
 
 .more {
-  display:block;
+  display: block;
   outline: none;
   border: none;
-  color:#fff;
-  background-color:$green;
+  color: #fff;
+  background-color: $green;
   &:hover {
-    cursor: pointer;
     background-color: darken($green, 10%);
   }
 }

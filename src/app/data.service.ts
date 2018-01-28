@@ -6,7 +6,6 @@ import {HttpClient} from '@angular/common/http';
 export class DataService {
 
   private endpoint = 'https://api.unsplash.com';
-  private localEndpoint = 'assets/json/';
   private appID = '92eb7437dd10b8effb710b186827c76f42ecca9edd05345b9bbcc7003368e206';
 
   collections = [
@@ -18,12 +17,12 @@ export class DataService {
   constructor(private http: HttpClient) {
   }
 
-  getCollection(id: number) {
-    return this.http.get(this.localEndpoint + id + '.json');
-    // return this.http.get(this.endpoint + '/collections/' + id + '/photos?client_id=' + this.appID, {
-    //   headers: {
-    //     'Expires': '10000000'
-    //   }
-    // });
+  getCollection(id: number, page = 1, items = 10) {
+    return this.http.get(this.endpoint + '/collections/' + id + '/photos?client_id=' + this.appID + '&page=' + page + '&per_page=' + items, {
+      headers: {
+        'Expires': '10000000'
+      }
+    });
   }
+
 }

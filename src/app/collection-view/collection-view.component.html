@@ -1,13 +1,17 @@
 <mat-progress-spinner mode="indeterminate" class="spinner" *ngIf="!photos"></mat-progress-spinner>
 
-<div class="row special-row" *ngIf="photos">
+<div class="row"
+     *ngIf="photos"
+     infiniteScroll
+     [infiniteScrollDistance]="1"
+     (scrolled)="onScroll()">
   <div class="col-sm-3" *ngFor="let item of photos">
     <a class="preview" title="View photo by {{item.user.username}}" (click)="openModal(item)">
-      <img src="{{item.urls.small}}" class="grid-item thumb"/>
+      <img src="{{item.urls.small}}"
+           class="grid-item thumb"/>
     </a>
   </div>
-  <div class="col-sm-3">
-    <button class="grid-item more" routerLink="collection/{{id}}">See collection</button>
-  </div>
+
 </div>
 
+<div class="text-center" *ngIf="noMoreItems">No more items to display.</div>
