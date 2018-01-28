@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ModalComponent} from './modal/modal.component';
+import {ModalComponent} from '../modal/modal.component';
 import {MatDialog, MatDialogRef} from '@angular/material';
 
 @Injectable()
@@ -15,12 +15,7 @@ export class ModalService {
       minWidth: 700,
       autoFocus: false,
       data: {
-        url: photo.urls.regular,
-        userName: photo.user.name,
-        userPhoto: photo.user.profile_image.medium,
-        userLocation: photo.user.location,
-        likes: photo.likes,
-        date: photo.created_at
+        photo: photo
       }
     });
   }

@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {DataService} from '../data.service';
+import {DataService} from '../services/data.service';
 import {ISubscription} from 'rxjs/Subscription';
 
 
@@ -11,7 +11,7 @@ import {ISubscription} from 'rxjs/Subscription';
 export class HomeViewComponent implements OnInit, OnDestroy {
 
   private collectionSub: ISubscription;
-  private collections = this.data.collections;
+  collections = this.data.collections;
 
   constructor(private data: DataService) {
   }
@@ -19,10 +19,11 @@ export class HomeViewComponent implements OnInit, OnDestroy {
   ngOnInit() {
     let i = 0;
     this.collections.forEach(collection => {
-      this.collectionSub = this.data.getCollection(collection.id).subscribe(data => {
-        this.collections[i]['previews'] = data;
-        i++;
-      });
+      this.collectionSub = this.data.getCollection(collection.id)
+        .subscribe(data => {
+          this.collections[i]['previews'] = data;
+          i++;
+        });
     });
   }
 

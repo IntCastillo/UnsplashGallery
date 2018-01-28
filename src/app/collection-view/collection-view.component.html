@@ -1,17 +1,21 @@
 <mat-progress-spinner mode="indeterminate" class="spinner" *ngIf="!photos"></mat-progress-spinner>
 
+<mat-form-field *ngIf="photos">
+  <mat-select placeholder="Sort by" (change)="sort()" [formControl]="selection">
+    <mat-option value="latest" aria-selected="true">latest</mat-option>
+    <mat-option value="oldest">oldest</mat-option>
+    <mat-option value="popular">popularity</mat-option>
+  </mat-select>
+</mat-form-field>
+
 <div class="row"
      *ngIf="photos"
      infiniteScroll
      [infiniteScrollDistance]="1"
      (scrolled)="onScroll()">
-  <div class="col-sm-3" *ngFor="let item of photos">
-    <a class="preview" title="View photo by {{item.user.username}}" (click)="openModal(item)">
-      <img src="{{item.urls.small}}"
-           class="grid-item thumb"/>
-    </a>
+  <div class="col-md-4 col-lg-3" *ngFor="let item of photos">
+    <app-thumbnail [photoID]="item.id"></app-thumbnail>
   </div>
-
 </div>
 
 <div class="text-center" *ngIf="noMoreItems">No more items to display.</div>

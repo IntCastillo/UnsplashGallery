@@ -8,27 +8,15 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class ModalComponent implements OnInit {
 
-  private photoURL: string;
-  private userName: string;
-  private userPhoto: string;
-  private userLocation: string;
-  private likes: number;
-  private date: string;
-
-  private isImageLoaded = false;
+  photo;
+  isImageLoaded = false;
 
   constructor(private dialogRef: MatDialogRef<ModalComponent>,
-              @Inject(MAT_DIALOG_DATA) private data) {
+              @Inject(MAT_DIALOG_DATA) private modalData) {
   }
 
   ngOnInit() {
-    this.photoURL = this.data.url;
-    this.userName = this.data.userName;
-    this.userPhoto = this.data.userPhoto;
-    this.userLocation = this.data.userLocation;
-    this.likes = this.data.likes;
-    this.date = this.data.date;
-
+    this.photo = this.modalData.photo;
     this.isImageLoaded = false;
   }
 

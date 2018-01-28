@@ -1,13 +1,13 @@
 <div class="pic-desc">
   <div>
-    <img src="{{userPhoto}}" alt="{{userName}}"  class="user-avatar" />
+    <img src="{{photo.user.profile_image.medium}}" alt="{{photo.user.name}}" class="user-avatar"/>
   </div>
   <div class="pic-info">
-    <h3 mat-dialog-title>Photo by {{userName}}</h3>
-    <div class="date">{{date}}, {{userLocation}}</div>
+    <h3 mat-dialog-title>Photo by {{photo.user.name}}</h3>
+    <div class="date">{{photo.created_at | date}}, {{photo.location.country}}</div>
   </div>
   <div class="likes">
-    <img src="../../assets/img/likes.png" alt="Likes" /> {{likes}}
+    <img src="../../assets/img/likes.png" alt="Likes"/> {{photo.likes}}
   </div>
 </div>
 
@@ -18,12 +18,12 @@
     *ngIf="!isImageLoaded">
   </mat-progress-spinner>
 
-  <img src="{{photoURL}}"
-       alt="Photo by {{userName}}"
+  <img src="{{photo.urls.regular}}"
+       alt="Photo by {{photo.user.name}}"
        class="main-picture"
        (load)="onLoad()"
        [class.loading]="!isImageLoaded"
-       [class.loaded]="isImageLoaded" />
+       [class.loaded]="isImageLoaded"/>
 </mat-dialog-content>
 
 <mat-dialog-actions>

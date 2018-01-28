@@ -1,12 +1,10 @@
 <mat-progress-spinner mode="indeterminate" class="spinner" *ngIf="!photos"></mat-progress-spinner>
 
 <div class="row special-row" *ngIf="photos">
-  <div class="col-sm-3" *ngFor="let item of photos">
-    <a class="preview" title="View photo by {{item.user.username}}" (click)="openModal(item)">
-      <img src="{{item.urls.small}}" class="grid-item thumb"/>
-    </a>
+  <div class="col-md-4 col-lg-3" *ngFor="let item of photos">
+    <app-thumbnail [photoID]="item.id"></app-thumbnail>
   </div>
-  <div class="col-sm-3">
+  <div class="col-md-4 col-lg-3">
     <button class="grid-item more" routerLink="collection/{{id}}">See collection</button>
   </div>
 </div>

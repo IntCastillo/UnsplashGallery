@@ -3,11 +3,12 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {HomeViewComponent} from './home-view/home-view.component';
-import {CategoryPreviewComponent} from './home-view/category-preview/category-preview.component';
+import {CategoryPreviewComponent} from './home-view/collection-preview/collection-preview.component';
 import {NavbarComponent} from './navbar/navbar.component';
+import {CollectionViewComponent} from './collection-view/collection-view.component';
 
-import {DataService} from './data.service';
-import {ModalService} from './modal.service';
+import {DataService} from './services/data.service';
+import {ModalService} from './services/modal.service';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app.routing';
 
@@ -17,11 +18,14 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {ModalComponent} from './modal/modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
-import {CollectionViewComponent} from './collection-view/collection-view.component';
+import {MatSelectModule} from '@angular/material/select';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import {ReactiveFormsModule} from '@angular/forms';
+import {ThumbnailComponent} from './thumbnail/thumbnail.component';
 
+import {DatePipe} from './pipes/date.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,9 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
     CategoryPreviewComponent,
     NavbarComponent,
     ModalComponent,
-    CollectionViewComponent
+    CollectionViewComponent,
+    ThumbnailComponent,
+    DatePipe
   ],
   imports: [
     BrowserModule,
@@ -41,8 +47,10 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
     MatProgressSpinnerModule,
     MatDialogModule,
     MatButtonModule,
+    MatSelectModule,
     AppRoutingModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    ReactiveFormsModule
   ],
   providers: [
     DataService,
