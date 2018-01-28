@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'app/sass/variables';
 
+body {
+  color: $text-color;
+}
 .spinner {
   margin: 50px auto;
 }
@@ -13,5 +17,14 @@ img {
   &.loaded {
     visibility: visible;
     height: auto;
+  }
+}
+
+a {
+  color: $text-color;
+  &:hover, &:focus {
+    color: $indigo;
+    text-decoration: none;
+    outline: none;
   }
 }

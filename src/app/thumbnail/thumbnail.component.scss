@@ -50,14 +50,3 @@ $imageHeight: '200px';
   width: 100%;
   object-fit: cover;
 }
-
-.more {
-  display: block;
-  outline: none;
-  border: none;
-  color: #fff;
-  background-color: $green;
-  &:hover {
-    background-color: darken($green, 10%);
-  }
-}

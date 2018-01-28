@@ -3,7 +3,9 @@
     <img src="{{photo.user.profile_image.medium}}" alt="{{photo.user.name}}" class="user-avatar"/>
   </div>
   <div class="pic-info">
-    <h3 mat-dialog-title>Photo by {{photo.user.name}}</h3>
+    <h3 mat-dialog-title>Photo by
+      <a href="http://unsplash.com/@{{photo.user.username}}" target="_blank" title="See {{photo.user.name}}'s profile">{{photo.user.name}}</a>
+    </h3>
     <div class="date">{{photo.created_at | date}}, {{photo.location.country}}</div>
   </div>
   <div class="likes">

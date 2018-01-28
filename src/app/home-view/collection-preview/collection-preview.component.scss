@@ -11,8 +11,8 @@
   outline: none;
   border: none;
   color: #fff;
-  background-color: $green;
+  background-color: $indigo;
   &:hover {
-    background-color: darken($green, 10%);
+    background-color: darken($indigo, 10%);
   }
 }
